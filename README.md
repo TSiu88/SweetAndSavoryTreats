@@ -98,23 +98,28 @@ This application uses a partial view to make the log in name and log out button 
 
 _Here is a snippet of what the homepage looks like:_
 
-![Snippet of homepage](./sweetandsavorytreats/img-readme/snippet1.png)
+![Snippet of homepage](./img-readme/snippet1.png)
 
 _Here is a snippet of what the treat details looks like when logged on:_
 
-![Snippet of logged in treat details](./sweetandsavorytreats/img-readme/snippet2.png)
+![Snippet of logged in treat details](./img-readme/snippet2.png)
 
 _Here is a snippet of what the treat details looks like when NOT logged on:_
 
-![Snippet of not logged in treat details](./sweetandsavorytreats/img-readme/snippet3.png)
+![Snippet of not logged in treat details](./img-readme/snippet3.png)
+
+<details>
+  <summary>Click to expand to view more screenshots</summary>
 
 _Here is a preview of what the flavor details looks like:_
 
-![Snippet of flavor details](./sweetandsavorytreats/img-readme/snippet4.png)
+![Snippet of flavor details](./img-readme/snippet4.png)
 
 _Here is a preview of what the treats list looks like:_
 
-![Snippet of treats list](./sweetandsavorytreats/img-readme/snippet5.png)
+![Snippet of treats list](./img-readme/snippet5.png)
+
+</details>
 
 ## Known Bugs
 
