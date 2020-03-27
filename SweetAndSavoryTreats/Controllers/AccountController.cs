@@ -67,9 +67,9 @@ namespace SweetSavoryTreats.Controllers
 
     public ActionResult Login()
     {
-      if(TempData["message"] != null)
+      if(TempData["loginMessage"] != null)
       {
-        ViewBag.Message = TempData["message"].ToString();
+        ViewBag.Message = TempData["loginMessage"].ToString();
       }
       return View();
     }
@@ -84,7 +84,7 @@ namespace SweetSavoryTreats.Controllers
       }
       else
       {
-        TempData["message"] = "Incorrect email or password!";
+        TempData["loginMessage"] = "Incorrect email or password!";
         return Login();
       }
     }

@@ -20,7 +20,7 @@ else
   <ul>
   @foreach(var join in Model.Flavors)
   {
-    <li>@join.Flavor.Title</li>
+    <li>@Html.ActionLink(@join.Flavor.Title, "Details", "Flavors", new {id=join.FlavorId})</li>
     @if(User.Identity.IsAuthenticated)
     {
       @using (Html.BeginForm("DeleteFlavor", "Treats"))

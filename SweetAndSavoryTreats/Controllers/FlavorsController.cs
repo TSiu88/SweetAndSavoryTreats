@@ -24,12 +24,16 @@ namespace SweetSavoryTreats.Controllers
 
     public ActionResult Index()
     {
-      return View(_db.Flavors.ToList());
+      return View(_db.Flavors.OrderBy(x => x.Title).ToList());
     }
 
     [Authorize]
     public ActionResult Create()
     {
+      if(TempData["message"] != null)
+      {
+        ViewBag.Message = TempData["message"].ToString();
+      }
       return View();
     }
     
@@ -39,9 +43,23 @@ namespace SweetSavoryTreats.Controllers
       var userId = this.User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
       var currentUser = await _userManager.FindByIdAsync(userId);
       flavor.User = currentUser;
-      _db.Flavors.Add(flavor);
-      _db.SaveChanges();
-      return RedirectToAction("Index");
+      if(flavor.Title == null)
+      {
+        TempData["message"] = "Title required! Please enter title to continue.";
+        return Create();
+      }
+      else if (_db.Flavors.FirstOrDefault(f => f.Title.ToLower() == flavor.Title.ToLower()) != null)
+      {
+        TempData["message"] = "Flavor already exists!";
+        return Create();
+      }
+      else
+      {
+        _db.Flavors.Add(flavor);
+        _db.SaveChanges();
+        return RedirectToAction("Index");  
+      }
+      
     }
 
     public ActionResult Details(int id)
@@ -56,6 +74,10 @@ namespace SweetSavoryTreats.Controllers
     [Authorize]
     public ActionResult Edit(int id)
     {
+      if(TempData["message"] != null)
+      {
+        ViewBag.Message = TempData["message"].ToString();
+      }
       var thisFlavor = _db.Flavors.FirstOrDefault(flavor => flavor.FlavorId == id);
       return View(thisFlavor);
     }
@@ -66,9 +88,17 @@ namespace SweetSavoryTreats.Controllers
       var userId = this.User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
       var currentUser = await _userManager.FindByIdAsync(userId);
       flavor.User = currentUser;
-      _db.Entry(flavor).State = EntityState.Modified;
-      _db.SaveChanges();
-      return RedirectToAction("Index");
+      if(flavor.Title == null)
+      {
+        TempData["message"] = "Title required! Please enter title to continue.";
+        return RedirectToAction("Edit");
+      }
+      else
+      {
+        _db.Entry(flavor).State = EntityState.Modified;
+        _db.SaveChanges();
+        return RedirectToAction("Index");  
+      }
     }
 
     [Authorize]
