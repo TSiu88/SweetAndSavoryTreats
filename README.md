@@ -45,6 +45,7 @@ _This program also makes use of SQL databases. We recommend using MySQL Workbenc
 * _MySQL Workbench_
 * _MySQL Community Server_
 * _Entity Framework_
+* _ASP.NET Core Identity_
 * _Command Prompt_
 * _Web Browser_ 
 
@@ -57,15 +58,9 @@ _This program also makes use of SQL databases. We recommend using MySQL Workbenc
 3. Click clone the [repository](https://github.com/TSiu88/SweetAndSavoryTreats.git) from my [GitHub page](https://github.com/TSiu88) to copy the repository link
 4. Use a command line interface to type `git clone (repository-link-here)` to copy the project into the current folder and then move into the repository's directory that was just created with `cd (project-name-here)`
 5. Start up a local server by opening MySQL Workbench and adding a `MySQL Connections` using the default IP address and Port (IP 127.0.0.1, Port 3306), username (root), and password from setup.
-6. Construct the database by entering in the following lines under the `Query 1` section and then clicking execute:
-  >
-    CREATE DATABASE tiffany_siu;
-    USE tiffany_siu;
-    CREATE TABLE stylists (id serial PRIMARY KEY, name VARCHAR(255));
-    CREATE TABLE clients (id serial PRIMARY KEY, description VARCHAR(255));
-7. Run `dotnet restore` and `dotnet build` in command line interface of the repository's main project directory
-8. Run `dotnet run` to start up the program in the command line interface
-9. Type the URL listed under "Now listening on:" into a web browser to run
+6. Run `dotnet restore` and `dotnet build` in command line interface of the repository's main project directory
+7. Run `dotnet run` to start up the program in the command line interface
+8. Type the URL listed under "Now listening on:" into a web browser to run
 
 ## Other Technologies Used
 
@@ -160,5 +155,7 @@ _If there are any question or concerns please contact me at my [email](mailto:ts
 ### License
 
 *This software is licensed under the MIT license*
+
+Photo Credit: Photo by <a style="background-color:black;color:white;text-decoration:none;padding:4px 6px;font-family:-apple-system, BlinkMacSystemFont, &quot;San Francisco&quot;, &quot;Helvetica Neue&quot;, Helvetica, Ubuntu, Roboto, Noto, &quot;Segoe UI&quot;, Arial, sans-serif;font-size:12px;font-weight:bold;line-height:1.2;display:inline-block;border-radius:3px" href="https://unsplash.com/@gigantfotos?utm_medium=referral&amp;utm_campaign=photographer-credit&amp;utm_content=creditBadge" target="_blank" rel="noopener noreferrer" title="Download free do whatever you want high-resolution photos from Miti"><span style="display:inline-block;padding:2px 3px"><svg xmlns="http://www.w3.org/2000/svg" style="height:12px;width:auto;position:relative;vertical-align:middle;top:-2px;fill:white" viewBox="0 0 32 32"><title>unsplash-logo</title><path d="M10 9V0h12v9H10zm12 5h10v18H0V14h10v9h12v-9z"></path></svg></span><span style="display:inline-block;padding:2px 3px">Miti</span></a> on [Unsplash](https://unsplash.com/photos/qYreP9QOdrk)
 
 Copyright (c) 2020 **_Tiffany Siu_**

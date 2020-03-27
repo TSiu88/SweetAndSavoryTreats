@@ -2,8 +2,18 @@
   Layout = "_Layout";
 }
 
-<h1>Welcome to the To Do List!</h1>
+<h1>Welcome to Pierre's Treats!</h1>
 <p>@Html.ActionLink("See all Flavors", "Index", "Flavors")</p>
 <p>@Html.ActionLink("See all Treats", "Index", "Treats")</p>
-<p>@Html.ActionLink("Add new Treat", "Create")</p>
-<p>@Html.ActionLink("Create an account", "Index", "Account")</p>
+
+<div class="login">
+  <p>@User.Identity.Name</p>
+</div>
+<div class="footer">
+  @if(!User.Identity.IsAuthenticated)
+  {
+    <p>@Html.ActionLink("Create an account", "Index", "Account")</p>
+    <p>@Html.ActionLink("Login", "Login", "Account")</p>
+  }
+  
+</div>
