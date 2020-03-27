@@ -4,11 +4,17 @@
 
 @model SweetSavoryTreats.Models.Flavor
 
-<h4>Add a new Flavor</h4>
+<h2>Add a new Flavor</h2>
 @using (Html.BeginForm())
 {
-    @Html.LabelFor(model => model.Name)
-    @Html.TextBoxFor(model => model.Name)
+    @Html.LabelFor(model => model.Title)
+    @Html.TextBoxFor(model => model.Title)
+    <br>
+    <br>
+    @Html.LabelFor(model => model.Description)
+    @Html.TextAreaFor(model => model.Description)
+    <br>
+    <br>
     <input type="submit" value="Add new Flavor" />
 }
 <p>@Html.ActionLink("Back to Flavors List", "Index")</p>

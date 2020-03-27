@@ -14,10 +14,22 @@
 
     @Html.LabelFor(model => model.Name)
     @Html.EditorFor(model => model.Name)
-
+    <br>
+    <br>
+    @Html.LabelFor(model => model.Description)
+    @Html.TextAreaFor(model => model.Description)
+    <br>
+    <br>
+    @Html.LabelFor(model => model.Price)
+    @Html.EditorFor(model => model.Price, new {type="number", min="0"})
+    <br>
+    <br>
     @Html.Label("Select Flavor")
     @Html.DropDownList("FlavorId")
-
-    <input type="submit" value="Save" />
+    <br>
+    <br>
+    <input class="btn btn-default" type="submit" value="Save" />
 }
-<p>@Html.ActionLink("Back to Treat list", "Index")</p>
+<div class="footer">
+  <p>@Html.ActionLink("Back to Treat list", "Index")</p>
+</div>

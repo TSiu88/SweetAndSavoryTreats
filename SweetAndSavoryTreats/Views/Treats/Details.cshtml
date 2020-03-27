@@ -7,6 +7,8 @@
 <h2>Treat Details</h2>
 <hr />
 <h3>@Html.DisplayNameFor(model => model.Name): @Html.DisplayFor(model => model.Name)<h3>
+<h4>@Html.DisplayNameFor(model => model.Description): @Html.DisplayFor(model => model.Description)<h4>
+<h4>@Html.DisplayNameFor(model => model.Price): $@Html.DisplayFor(model => model.Price)<h4>
 
 @if(@Model.Flavors.Count == 0)
 {
@@ -18,7 +20,7 @@ else
   <ul>
   @foreach(var join in Model.Flavors)
   {
-    <li>@join.Flavor.Name</li>
+    <li>@join.Flavor.Title</li>
     @using (Html.BeginForm("DeleteFlavor", "Treats"))
     {
       @Html.Hidden("joinId", @join.FlavorTreatId)
@@ -27,7 +29,9 @@ else
   }
   </ul>
 }
-<p>@Html.ActionLink("Edit Treat", "Edit", new { id = Model.TreatId })</p>
-<p>@Html.ActionLink("Add a Flavor", "AddFlavor", new { id = Model.TreatId })</p>
-<p>@Html.ActionLink("Delete Treat", "Delete", new { id = Model.TreatId })</p>
-<p>@Html.ActionLink("Back to Treat list", "Index")</p>
+<div class="footer">
+  <p>@Html.ActionLink("Edit Treat", "Edit", new { id = Model.TreatId })</p>
+  <p>@Html.ActionLink("Add a Flavor", "AddFlavor", new { id = Model.TreatId })</p>
+  <p>@Html.ActionLink("Delete Treat", "Delete", new { id = Model.TreatId })</p>
+  <p>@Html.ActionLink("Back to Treat list", "Index")</p>
+</div>

@@ -5,7 +5,7 @@
 @using SweetSavoryTreats.Models;
 @model IEnumerable<SweetSavoryTreats.Models.Treat>;
 
-<h1>Treats for @User.Identity.Name</h1>
+<h1>Treats List</h1>
 
 @if (Model.Any())
 {
@@ -20,6 +20,7 @@ else
 {
   <h3>No Treats have been added yet!</h3>
 } 
-
-<p>@Html.ActionLink("Add new Treat", "Create")</p>
-<p>@Html.ActionLink("Return Home", "Index", "Home")</p>
+<div class="footer">
+  <p>@Html.ActionLink("Add new Treat", "Create")</p>
+  <p>@Html.ActionLink("Return Home", "Index", "Home")</p>
+</div>

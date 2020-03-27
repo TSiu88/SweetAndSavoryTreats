@@ -10,19 +10,26 @@ body {
 h1 {
   font-family: 'Lobster', cursive;
   font-size: 45pt;
+  text-align: center;
 }
 
 h2 {
   font-family: 'Lobster', cursive;
   font-size: 35pt;
+  text-align: center;
 }
 
 label {
   margin-right: 5px;
 }
 
-input {
+input, select {
   color: black;
+}
+
+textarea {
+  color: black;
+  vertical-align: top;
 }
 
 .container {
@@ -51,6 +58,10 @@ input {
   margin-bottom: 0px;
   margin-right: 5px;
   margin-left: 5px;
+}
+
+.logoutBtn {
+  padding: 1px 1px;
 }
 
 .footer {
