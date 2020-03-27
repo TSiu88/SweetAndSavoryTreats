@@ -21,31 +21,56 @@ namespace SweetSavoryTreats.Controllers
 
     public ActionResult Index()
     {
+      if(TempData["logoutMessage"] != null)
+      {
+        ViewBag.Message = TempData["logoutMessage"].ToString();
+      }
       return View();
     }
 
     public IActionResult Register()
     {
+      if(TempData["messageR"] != null)
+      {
+        ViewBag.Message = TempData["messageR"].ToString();
+      }
       return View();
     }
 
     [HttpPost]
     public async Task<ActionResult> Register (RegisterViewModel model)
     {
-      var user = new ApplicationUser { UserName = model.Email };
-      IdentityResult result = await _userManager.CreateAsync(user, model.Password);
-      if (result.Succeeded)
+      if(TempData["messageR"] != null)
       {
-        return RedirectToAction("Index");
+        ViewBag.Message = TempData["messageR"].ToString();
+      }
+      var user = new ApplicationUser { UserName = model.Email };
+      if(model.Password != null)
+      {
+        IdentityResult result = await _userManager.CreateAsync(user, model.Password);
+        if (result.Succeeded)
+        {
+          return RedirectToAction("Index");
+        }
+        else
+        {
+          TempData["messageR"] = "Please Fill in Required Fields!";
+          return View();
+        }
       }
       else
       {
+        TempData["messageR"] = "Please Fill in Required Fields!";
         return View();
       }
     }
 
     public ActionResult Login()
     {
+      if(TempData["message"] != null)
+      {
+        ViewBag.Message = TempData["message"].ToString();
+      }
       return View();
     }
 
@@ -59,13 +84,15 @@ namespace SweetSavoryTreats.Controllers
       }
       else
       {
-        return View();
+        TempData["message"] = "Incorrect email or password!";
+        return Login();
       }
     }
 
     [HttpPost]
     public async Task<ActionResult> LogOff()
     {
+      TempData["logoutMessage"] = "You have been logged off.";
       await _signInManager.SignOutAsync();
       return RedirectToAction("Index");
     }

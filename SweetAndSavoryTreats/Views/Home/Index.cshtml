@@ -6,26 +6,6 @@
 <p>@Html.ActionLink("See all Flavors", "Index", "Flavors")</p>
 <p>@Html.ActionLink("See all Treats", "Index", "Treats")</p>
 
-<div class="login">
-  @if(User.Identity.IsAuthenticated)
-  {
-    <i class="material-icons" style="color:white">person</i>
-    <p>@User.Identity.Name</p> 
-    @* <p>@Html.ActionLink("Logout", "LogOff", "Account")</p> *@
-    @using (Html.BeginForm("LogOff", "Account"))
-    {
-      <input type="submit" class="btn logoutBtn" value="Log out" />
-    }
-  }
-  else
-  {
-    <p>@Html.ActionLink("Login", "Login", "Account")</p>
-    
-    
-  }
-  
-</div>
-
 @if(!User.Identity.IsAuthenticated)
 {
   <div class="footer">

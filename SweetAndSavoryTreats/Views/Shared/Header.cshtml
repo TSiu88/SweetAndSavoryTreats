@@ -1,0 +1,17 @@
+<div class="login">
+  @if(User.Identity.IsAuthenticated)
+  {
+    <i class="material-icons" style="color:white">person</i>
+    <p>@User.Identity.Name</p> 
+    @* <p>@Html.ActionLink("Logout", "LogOff", "Account")</p> *@
+    @using (Html.BeginForm("LogOff", "Account"))
+    {
+      <input type="submit" class="btn logoutBtn" value="Log out" />
+    }
+  }
+  else
+  {
+    <i class="material-icons" style="color:white">person_add</i>
+    <p>@Html.ActionLink("Login", "Login", "Account")</p>
+  }
+</div>

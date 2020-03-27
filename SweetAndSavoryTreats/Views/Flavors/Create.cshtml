@@ -15,6 +15,9 @@
     @Html.TextAreaFor(model => model.Description)
     <br>
     <br>
-    <input type="submit" value="Add new Flavor" />
+    <input class="btn btn-default" type="submit" value="Add new Flavor" />
 }
-<p>@Html.ActionLink("Back to Flavors List", "Index")</p>
+<div class="footer">
+  <p>@Html.ActionLink("Back to Flavors List", "Index")</p>
+  <p>@Html.ActionLink("Home", "Index", "Home")</p>
+</div>

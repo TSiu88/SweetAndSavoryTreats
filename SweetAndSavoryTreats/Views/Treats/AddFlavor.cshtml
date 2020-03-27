@@ -14,9 +14,12 @@
 
   @Html.Label("Select Flavor")
   @Html.DropDownList("FlavorId")
-
+  <br>
+  <br>
   <input class="btn btn-default" type="submit" value="Save" />
+  <p>@Html.ActionLink("Cancel", "Details", new {id=Model.TreatId})</p>
 }
 <div class="footer">
   <p>@Html.ActionLink("Back to Treats list", "Index")</p>
+  <p>@Html.ActionLink("Home", "Index", "Home")</p>
 </div>
