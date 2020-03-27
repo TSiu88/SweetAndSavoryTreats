@@ -21,6 +21,9 @@ else
   <h3>No Treats have been added yet!</h3>
 } 
 <div class="footer">
-  <p>@Html.ActionLink("Add new Treat", "Create")</p>
+  @if(User.Identity.IsAuthenticated)
+  {
+    <p>@Html.ActionLink("Add new Treat", "Create")</p>  
+  }
   <p>@Html.ActionLink("Return Home", "Index", "Home")</p>
 </div>
